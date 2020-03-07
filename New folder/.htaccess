@@ -1,0 +1,22 @@
+RewriteEngine on
+
+RewriteRule ^$ depan.php [L]
+
+RewriteRule ^admin/?$ admin/home.php [L]
+RewriteRule ^admin/PT/(.*)?$ admin/c-pt.php$1 [L]
+
+RewriteRule ^admin/kontrak/?$ admin/input-kontrak.php [L]
+RewriteRule ^admin/kontrak/update-(.*)?$ admin/input-kontrak.php?idktrk=$1 [L]
+RewriteRule ^admin/kontrak/delete-(.*)?$ admin/input-kontrak.php?idktrkh=$1 [L]
+
+RewriteRule ^admin/kontrak/updatePT-(.*)?$ admin/input-kontrak.php?idpt=$1 [L]
+RewriteRule ^admin/kontrak/deletePT-(.*)?$ admin/input-kontrak.php?idpth=$1 [L]
+
+RewriteRule ^admin/user/?$ admin/input-user.php [L]
+RewriteRule ^admin/user/update-(.*)?$ admin/input-user.php?idu=$1 [L]
+RewriteRule ^admin/user/delete-(.*)?$ admin/input-user.php?iduh=$1 [L]
+
+RewriteRule ^user/?$ user/home.php [L]
+RewriteRule ^user/PT/(.*)?$ user/c-pt.php$1 [L]
+Options All -Indexes
+

@@ -59,5 +59,13 @@
     .flot .flot-overlay {
       width: 100% !important;
     }
+
+    .bg-primary-template{
+      background-color: #20639b !important;
+    }
+
+    .valign-middle{
+      vertical-align: middle !important;
+    }
   </style>
 </head>

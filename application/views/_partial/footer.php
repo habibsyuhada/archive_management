@@ -5,6 +5,9 @@
 	    </div>
 	  </div>
 
+	  <script type="text/javascript">
+	  	$('.datatables').DataTable();
+	  </script>
 	</body>
 
 </html>

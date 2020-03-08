@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div id="main-wrapper">
+  <div id="main-wrapper" class="mini-sidebar">
 		<!--================Header Menu Area =================-->
 		<header class="topbar" data-navbarbg="skinAdmin1">
 		  <nav class="navbar top-navbar navbar-expand-md navbar-dark">

@@ -7,6 +7,12 @@
 
 	  <script type="text/javascript">
 	  	$('.datatables').DataTable();
+	  	$('.mydatepicker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd',
+        endDate: Infinity,
+        orientation: 'bottom'
+      });
 	  </script>
 	</body>
 

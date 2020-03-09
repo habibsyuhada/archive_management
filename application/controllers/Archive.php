@@ -46,4 +46,15 @@ class Archive extends CI_Controller {
 		$data['sidebar'] 	= $this->sidebar;
 		$this->load->view('index', $data);
 	}
+
+	public function archive_report(){
+		$data['subview'] 			= 'archive/archive_report';
+		$data['meta_title'] 	= 'Report';
+		$data['navigation'] 	= array(
+			array('text' => 'Archive', 'link' => '#'),
+			array('text' => 'Archive Report', 'link' => '#'),
+		);
+		$data['sidebar'] 	= $this->sidebar;
+		$this->load->view('index', $data);
+	}
 }

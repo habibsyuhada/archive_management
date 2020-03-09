@@ -3,8 +3,8 @@
 		<div class="col-md-3">
 			<div class="card bg-primary text-white" style="border-radius: 1rem;">
 				<div class="card-body">
-					<h1 class="text-center">Dokumen Baru</h1>
-					<h2 class="text-center">1</h2>
+					<h1 class="text-center">Jumlah Dokumen</h1>
+					<h2 class="text-center"><?php echo rand(1, 10) ?></h2>
 					<h2 class="text-center">Hari ini</h2>
 				</div>
 			</div>
@@ -12,8 +12,8 @@
 		<div class="col-md-3">
 			<div class="card bg-warning text-white" style="border-radius: 1rem;">
 				<div class="card-body">
-					<h1 class="text-center">Dokumen Baru</h1>
-					<h2 class="text-center">1</h2>
+					<h1 class="text-center">Jumlah Dokumen</h1>
+					<h2 class="text-center"><?php echo rand(10, 50) ?></h2>
 					<h2 class="text-center">Bulan ini</h2>
 				</div>
 			</div>
@@ -21,8 +21,8 @@
 		<div class="col-md-3">
 			<div class="card bg-success text-white" style="border-radius: 1rem;">
 				<div class="card-body">
-					<h1 class="text-center">Dokumen Baru</h1>
-					<h2 class="text-center">1</h2>
+					<h1 class="text-center">Jumlah Dokumen</h1>
+					<h2 class="text-center"><?php echo rand(50, 100) ?></h2>
 					<h2 class="text-center">Tahun ini</h2>
 				</div>
 			</div>
@@ -30,8 +30,8 @@
 		<div class="col-md-3">
 			<div class="card bg-secondary text-white" style="border-radius: 1rem;">
 				<div class="card-body">
-					<h1 class="text-center">Dokumen Baru</h1>
-					<h2 class="text-center">1</h2>
+					<h1 class="text-center">Jumlah Dokumen</h1>
+					<h2 class="text-center"><?php echo rand(100, 500) ?></h2>
 					<h2 class="text-center">Semua Data</h2>
 				</div>
 			</div>
@@ -42,6 +42,9 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="card">
+				<div class="card-header">
+					<h3>Monthly Report</h3>
+				</div>
 				<div class="card-body">
 					<table class="table table-bordered text-center datatables">
 						<thead class="bg-primary-template text-white text-bold">

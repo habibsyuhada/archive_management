@@ -13,8 +13,9 @@
 
     $query = mysqli_query($conn, "INSERT INTO tbl_admin(username, name, role, nup, password) VALUES('$username', '$name', '$role', '$nup', '$password')") or die("Error description: " . mysqli_error($conn));
 
-    $_SESSION['success'] = 'Added';
+    $_SESSION['success'] = 'Your Data Has Been Added';
     header('Location: user_list.php');
+    exit;
   }
 ?>
 <?php include('../header.php'); ?>
@@ -44,7 +45,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-sm-3 text-right control-label col-form-label">NUP</label>
+          <label class="col-sm-3 text-right control-label col-form-label">Role</label>
           <div class="col-sm-9">
             <select name="role" class="form-control" required>
               <option value="">---</option>

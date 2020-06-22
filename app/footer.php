@@ -13,6 +13,17 @@
         endDate: Infinity,
         orientation: 'bottom'
       });
+
+			<?php
+				if(isset($_SESSION['danger'])){
+					echo "alert('Error: ".$_SESSION['danger']."')";
+					unset($_SESSION['danger']);
+				}
+				elseif(isset($_SESSION['success'])){
+					echo "alert('".$_SESSION['success']."')";
+					unset($_SESSION['success']);
+				}
+			?>
 	  </script>
 	</body>
 

@@ -11,6 +11,9 @@
           <a class="sidebar-link waves-effect waves-dark" href="archive_list.php" aria-expanded="false"><i class="mdi mdi-window-restore"></i><span class="hide-menu">Archive</span></a>
         </li>
         <li class="sidebar-item"> 
+          <a class="sidebar-link waves-effect waves-dark" href="archivetype_list.php" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Archive Type</span></a>
+        </li>
+        <li class="sidebar-item"> 
           <a class="sidebar-link waves-effect waves-dark" href="user_list.php" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">User</span></a>
         </li>
         <li class="sidebar-item"> 

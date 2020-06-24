@@ -2,7 +2,16 @@
   session_start();
   require_once('../config/config.php');
   $metaTitle = 'Data Users';
-  $metaDesc = '';
+	$metaDesc = '';
+	
+	if(isset($_GET['deletearchive'])){
+		$no_arsip = $_GET['deletearchive'];
+		$query = mysqli_query($conn, "DELETE FROM tbl_dokumen WHERE no_arsip = $no_arsip") or die("Error description: " . mysqli_error($conn));
+
+		$_SESSION['success'] = 'This Archive Has Been Deleted';
+		header('Location: user_list.php');
+		exit;
+	}
 
   $query = mysqli_query($conn, "SELECT dok.*, jen.nama_dokumen FROM tbl_dokumen dok JOIN tbl_jenis_dokumen jen ON dok.kode_dokumen = jen.kode_dokumen");
 ?>
@@ -40,10 +49,10 @@
 						<td class="valign-middle"><?php echo $data['nama_dokumen']; ?></td>
 						<td class="valign-middle"><?php echo $data['perihal']; ?></td>
 						<td class="valign-middle"><?php echo $data['tanggal_terbit']; ?></td>
-						<td class="valign-middle"><?php echo $data['file']; ?></td>
+						<td class="valign-middle"><a href="../upload/dokumen/<?php echo $data['file']; ?>" target="_blank" class="btn btn-dark text-white"><i class="fas fa-file"></i> File</a></td>
 						<td class="valign-middle text-nowrap">
-							<a href="archive_edit.php?id=<?php echo $data['id']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Update</a>
-							<a href="archive_list.php?deletearchive=<?php echo $data['id']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Delete</a>
+							<a href="archive_edit.php?no_arsip=<?php echo $data['no_arsip']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Update</a>
+							<a href="archive_list.php?deletearchive=<?php echo $data['no_arsip']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Delete</a>
 						</td>
           </tr>
           <?php endwhile; ?>

@@ -25,7 +25,7 @@
     $fileNameCmps = explode(".", $fileName);
     $fileExtension = strtolower(end($fileNameCmps));
 
-    $newFileName = $_SESSION['id'].'-'.date('ymd hms').'.'.$fileExtension;
+    $newFileName = $_SESSION['id'].'-'.date('ymdhms').'.'.$fileExtension;
 
     $allowedfileExtensions = array('pdf');
     if (in_array($fileExtension, $allowedfileExtensions)) {
@@ -107,7 +107,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="user_list.php" class="btn btn-secondary text-white mx-1 float-right"><i class="fa fa-times"></i> Cancel</a>
+        <a href="archive_list.php" class="btn btn-secondary text-white mx-1 float-right"><i class="fa fa-times"></i> Cancel</a>
         <button name="submit" class="btn btn-success float-right"><i class="fa fa-check"></i> Submit</button>
       </div>
     </div>

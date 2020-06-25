@@ -2,15 +2,19 @@
   session_start();
   require_once('../config/config.php');
   // header("Refresh: 300;");
-  $metaTitle = 'Home';
-  $metaDesc = '';
-  // $query1 = mysqli_query($conn, "SELECT 'data', SUM(IF(status = 'Pending', 1, 0)) as Pending, SUM(IF(status = 'Booking', 1, 0)) as Booking, SUM(IF(status = 'Received', 1, 0)) as Received, SUM(1) as Total FROM `v_order_list`");
-  // $data1 = mysqli_fetch_array($query1);
-
-  // $query2 = mysqli_query($conn, "SELECT * FROM `v_order_list` WHERE status = 'Booking' ORDER BY date_booking ASC LIMIT 10");
-  // $query3 = mysqli_query($conn, "SELECT DATE(date) as date, SUM(IF(status = 'Pending', 1, 0)) as Pending, SUM(IF(status = 'Booking', 1, 0)) as Booking, SUM(IF(status = 'Received', 1, 0)) as Received FROM (SELECT (CASE WHEN status = 'Pending' THEN date_pending WHEN status = 'Booking' THEN date_booking ELSE date_receive END) as date, status FROM `v_order_list`) as tmp_table GROUP BY DATE(date) ORDER BY date DESC LIMIT 7");
-  // print_r($query2);
-
+	$metaTitle = 'Home';
+	$date_now = date('Y-m-d');
+	$month_now = date('n');
+	$year_now = date('Y');
+	$query_date = mysqli_query($conn, "SELECT COUNT(no_arsip) as num FROM tbl_dokumen WHERE DATE(tanggal_input) = '$date_now'");
+	$query_date = mysqli_fetch_array($query_date);
+	$query_month = mysqli_query($conn, "SELECT COUNT(no_arsip) as num FROM tbl_dokumen WHERE MONTH(tanggal_input) = '$month_now' AND YEAR(tanggal_input) = '$year_now'");
+	$query_month = mysqli_fetch_array($query_month);
+	$query_year = mysqli_query($conn, "SELECT COUNT(no_arsip) as num FROM tbl_dokumen WHERE YEAR(tanggal_input) = '$year_now'");
+	$query_year = mysqli_fetch_array($query_year);
+	$query_all = mysqli_query($conn, "SELECT COUNT(no_arsip) as num FROM tbl_dokumen");
+	$query_all = mysqli_fetch_array($query_all);
+	$query_mreport = mysqli_query($conn, "SELECT COUNT(no_arsip) as num, dok.kode_dokumen, jen.nama_dokumen FROM tbl_dokumen dok JOIN tbl_jenis_dokumen jen ON dok.kode_dokumen = jen.kode_dokumen WHERE MONTH(dok.tanggal_input) = '$month_now' AND YEAR(dok.tanggal_input) = '$year_now'");
 ?>
 <?php include('../header.php'); ?>
 <?php include('../topbar.php'); ?>
@@ -22,7 +26,7 @@
 			<div class="card bg-primary text-white" style="border-radius: 1rem;">
 				<div class="card-body">
 					<h1 class="text-center">Jumlah Dokumen</h1>
-					<h2 class="text-center"><?php echo rand(1, 10) ?></h2>
+					<h2 class="text-center"><?php echo $query_date['num'] ?></h2>
 					<h2 class="text-center">Hari ini</h2>
 				</div>
 			</div>
@@ -31,7 +35,7 @@
 			<div class="card bg-warning text-white" style="border-radius: 1rem;">
 				<div class="card-body">
 					<h1 class="text-center">Jumlah Dokumen</h1>
-					<h2 class="text-center"><?php echo rand(10, 50) ?></h2>
+					<h2 class="text-center"><?php echo $query_month['num'] ?></h2>
 					<h2 class="text-center">Bulan ini</h2>
 				</div>
 			</div>
@@ -40,7 +44,7 @@
 			<div class="card bg-success text-white" style="border-radius: 1rem;">
 				<div class="card-body">
 					<h1 class="text-center">Jumlah Dokumen</h1>
-					<h2 class="text-center"><?php echo rand(50, 100) ?></h2>
+					<h2 class="text-center"><?php echo $query_year['num'] ?></h2>
 					<h2 class="text-center">Tahun ini</h2>
 				</div>
 			</div>
@@ -49,7 +53,7 @@
 			<div class="card bg-secondary text-white" style="border-radius: 1rem;">
 				<div class="card-body">
 					<h1 class="text-center">Jumlah Dokumen</h1>
-					<h2 class="text-center"><?php echo rand(100, 500) ?></h2>
+					<h2 class="text-center"><?php echo $query_all['num'] ?></h2>
 					<h2 class="text-center">Semua Data</h2>
 				</div>
 			</div>
@@ -73,21 +77,13 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php $no=0; while($data = mysqli_fetch_array($query_mreport)): ?>
 							<tr>
-								<td class="valign-middle">1</td>
-								<td class="valign-middle">Nota Dinas</td>
-								<td class="valign-middle">120</td>
+								<td class="valign-middle"><?php echo $no++; ?></td>
+								<td class="valign-middle"><?php echo $data['kode_dokumen'].' - '.$data['nama_dokumen']; ?></td>
+								<td class="valign-middle"><?php echo $data['num']; ?></td>
 							</tr>
-							<tr>
-								<td class="valign-middle">2</td>
-								<td class="valign-middle">Surat Keluar</td>
-								<td class="valign-middle">86</td>
-							</tr>
-							<tr>
-								<td class="valign-middle">3</td>
-								<td class="valign-middle">Momerandum</td>
-								<td class="valign-middle">26</td>
-							</tr>
+							<?php endwhile; ?>
 						</tbody>
 					</table>
 				</div>

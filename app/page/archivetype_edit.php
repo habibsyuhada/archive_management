@@ -35,7 +35,7 @@
         <div class="form-group row">
           <label class="col-sm-3 text-right control-label col-form-label">Nama Dokumen</label>
           <div class="col-sm-9">
-            <input type="text" name="no_surat" class="form-control" placeholder="Nama Dokumen" value="<?php echo $jenis['nama_dokumen'] ?>" required readonly>
+            <input type="text" name="no_surat" class="form-control" placeholder="Nama Dokumen" value="<?php echo $jenis['nama_dokumen'] ?>" required>
           </div>
           <div class="form-group row">
             <label class="col-sm-3 text-right control-label col-form-label">Adm. Penomoran</label>

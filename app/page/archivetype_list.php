@@ -9,7 +9,7 @@
 		$query = mysqli_query($conn, "DELETE FROM tbl_jenis_dokumen WHERE kode_dokumen = $kode_dokumen") or die("Error description: " . mysqli_error($conn));
 
 		$_SESSION['success'] = 'This Data Has Been Deleted';
-		header('Location: user_list.php');
+		header('Location: archivetype_list.php');
 		exit;
 	}
 

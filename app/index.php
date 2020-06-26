@@ -38,7 +38,7 @@
           <div class="text-center p-t-20 p-b-20">
             <span class="db xx">Unit Legal<br><b> PT. PERSERO BATAM</b></span>
           </div>
-          <?php if ($_GET['msg'] == 'error') { ?>
+          <?php if ( isset($_GET['msg']) && $_GET['msg'] == 'error') { ?>
             <div class="alert alert-danger alert-dismissible">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               <h4><i class="icon fa fa-times ?>"></i> Error</h4>

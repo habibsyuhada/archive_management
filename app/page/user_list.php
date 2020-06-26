@@ -1,8 +1,7 @@
 <?php
   session_start();
   require_once('../config/config.php');
-  $metaTitle = 'Data Users';
-  $metaDesc = '';
+  $metaTitle = 'Data User';
 
 	if(isset($_GET['resetpwd'])){
 		$id = $_GET['resetpwd'];
@@ -57,8 +56,8 @@
 						<td class="valign-middle"><?php echo $data['role']; ?></td>
 						<td class="valign-middle text-nowrap">
 							<a href="user_list.php?resetpwd=<?php echo $data['id']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-primary text-white"><i class="fa fa-key"></i> Reset Password</a>
-							<a href="user_edit.php?id=<?php echo $data['id']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Update</a>
-							<a href="user_list.php?deleteuser=<?php echo $data['id']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Delete</a>
+							<a href="user_edit.php?id=<?php echo $data['id']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Ubah</a>
+							<a href="user_list.php?deleteuser=<?php echo $data['id']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Hapus</a>
 						</td>
           </tr>
           <?php endwhile; ?>

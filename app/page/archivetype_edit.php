@@ -1,8 +1,7 @@
 <?php
   session_start();
   require_once('../config/config.php');
-  $metaTitle = 'Add New User';
-  $metaDesc = '';
+  $metaTitle = 'Ubah Data Jenis Dokumen';
 
   if(isset($_POST['submit'])){
     

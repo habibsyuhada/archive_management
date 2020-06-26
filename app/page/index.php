@@ -2,7 +2,7 @@
   session_start();
   require_once('../config/config.php');
   // header("Refresh: 300;");
-	$metaTitle = 'Home';
+	$metaTitle = 'Beranda';
 	$date_now = date('Y-m-d');
 	$month_now = date('n');
 	$year_now = date('Y');
@@ -65,7 +65,7 @@
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-header">
-					<h3>Monthly Report</h3>
+					<h3>Data Bulanan</h3>
 				</div>
 				<div class="card-body">
 					<table class="table table-bordered text-center datatables">
@@ -125,12 +125,13 @@
         text: 'Jumlah Dokumen'
       }, 
       subtitle: {
-         text: 'Daily Report'
+         text: 'Data Harian'
       }, 
       yAxis: {
         title: {
           text: 'Documents'
         },
+        allowDecimals: false,
         min: 0
       },
       xAxis: {

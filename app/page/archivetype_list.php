@@ -1,8 +1,7 @@
 <?php
   session_start();
   require_once('../config/config.php');
-  $metaTitle = 'Data Users';
-	$metaDesc = '';
+  $metaTitle = 'Data Jenis Dokumen';
 	
 	if(isset($_GET['deletearchivetype'])){
 		$kode_dokumen = $_GET['deletearchivetype'];
@@ -49,8 +48,8 @@
 						<td class="valign-middle"><?php echo $data['sifat_penomoran']; ?></td>
 						<td class="valign-middle"><?php echo $data['tanggal_input']; ?></td>
 						<td class="valign-middle text-nowrap">
-							<a href="archivetype_edit.php?kode_dokumen=<?php echo $data['kode_dokumen']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Update</a>
-							<a href="archivetype_list.php?deletearchivetype=<?php echo $data['kode_dokumen']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Delete</a>
+							<a href="archivetype_edit.php?kode_dokumen=<?php echo $data['kode_dokumen']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Ubah</a>
+							<a href="archivetype_list.php?deletearchivetype=<?php echo $data['kode_dokumen']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Hapus</a>
 						</td>
           </tr>
           <?php endwhile; ?>

@@ -1,8 +1,7 @@
 <?php
   session_start();
   require_once('../config/config.php');
-  $metaTitle = 'Data Users';
-	$metaDesc = '';
+  $metaTitle = 'Data Arsip';
 	
 	if(isset($_GET['deletearchive'])){
 		$no_arsip = $_GET['deletearchive'];
@@ -51,8 +50,8 @@
 						<td class="valign-middle"><?php echo $data['tanggal_terbit']; ?></td>
 						<td class="valign-middle"><a href="../upload/dokumen/<?php echo $data['file']; ?>" target="_blank" class="btn btn-dark text-white"><i class="fas fa-file"></i> File</a></td>
 						<td class="valign-middle text-nowrap">
-							<a href="archive_edit.php?no_arsip=<?php echo $data['no_arsip']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Update</a>
-							<a href="archive_list.php?deletearchive=<?php echo $data['no_arsip']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Delete</a>
+							<a href="archive_edit.php?no_arsip=<?php echo $data['no_arsip']; ?>" class="btn btn-info text-white"><i class="fa fa-edit"></i> Ubah</a>
+							<a href="archive_list.php?deletearchive=<?php echo $data['no_arsip']; ?>" class="btn btn-danger text-white"><i class="fa fa-trash"></i> Hapus</a>
 						</td>
           </tr>
           <?php endwhile; ?>
